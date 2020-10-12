@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="get">
+<!--    {{ form.as_p }}-->
+    <p>Search by title<input type="text" id="title" name="title"><input type="submit", value="Search in API">
+        <a href="/books/">Go back</a>
+    </p>
+</form>
+  <form method="get">
+    {{ filter.form.as_p }}
+
+   <a href="/books/">Go back</a></p>
+  </form>
+
+  <table class="table">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Pub_date</th>
+          <th scope="col">Isbn_num</th>
+          <th scope="col">Page_num</th>
+          <th scope="col">Link</th>
+          <th scope="col">Language</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in filter %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ item.title }}     </td>
+            <td>{{ item.author}}     </td>
+            <td>{{ item.pub_date }}  </td>
+            <td>{{ item.isbn_num }}  </td>
+            <td>{{ item.page_num }}  </td>
+            <td>{{ item.link }}      </td>
+            <td>{{ item.language }}  </td>
+<!--            <td><a href="/books/add/?title={{ item.title }}&author={{ item.author }}">Add</a></td>-->
+            <td>
+               <form method="get"> {% csrf_token %}
+                    <button type="get"  value="{{ item.author }}">Add</button>
+                </p>
+            </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

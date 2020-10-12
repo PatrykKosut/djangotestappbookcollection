@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <form method="get">
+    {{ filter.form.as_p }}
+    <p><input type="Submit", value="Search"><a href="/books/">Go back</a></p>
+  </form>
+
+<table class="table">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Author</th>
+          <th scope="col">Pub_date</th>
+          <th scope="col">Isbn_num</th>
+          <th scope="col">Page_num</th>
+          <th scope="col">Link</th>
+          <th scope="col">Language</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for item in filter.qs %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ item.id }}        </td>
+            <td>{{ item.title }}     </td>
+            <td>{{ item.author}}     </td>
+            <td>{{ item.pub_date }}  </td>
+            <td>{{ item.isbn_num }}  </td>
+            <td>{{ item.page_num }}  </td>
+            <td>{{ item.link }}      </td>
+            <td>{{ item.language }}  </td>
+            <td><a href="/books/{{ item.id }}/edit">Edit</a></td>
+            <td><a href="/books/{{ item.id }}/delete">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
