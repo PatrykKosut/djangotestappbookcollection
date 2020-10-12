@@ -3,14 +3,14 @@
 {% block content %}
 <form method="get">
 <!--    {{ form.as_p }}-->
-    <p>Search by title<input type="text" id="title" name="title"><input type="submit", value="Search in API">
+    <p>Search by title<input type="text" id="title" name="title"><input type="submit" value="Search in API">
         <a href="/books/">Go back</a>
     </p>
 </form>
   <form method="get">
     {{ filter.form.as_p }}
 
-   <a href="/books/">Go back</a></p>
+   <a href="/books/">Go back</a>
   </form>
 
   <table class="table">
@@ -37,13 +37,8 @@
             <td>{{ item.page_num }}  </td>
             <td>{{ item.link }}      </td>
             <td>{{ item.language }}  </td>
-<!--            <td><a href="/books/add/?title={{ item.title }}&author={{ item.author }}">Add</a></td>-->
-            <td>
-               <form method="get"> {% csrf_token %}
-                    <button type="get"  value="{{ item.author }}">Add</button>
-                </p>
-            </form>
-            </td>
+            <!--    TBD        -->
+            <td><a href="/books/add/?title={{ item.title }}">Add</a></td>
         </tr>
         {% endfor %}
     </tbody>

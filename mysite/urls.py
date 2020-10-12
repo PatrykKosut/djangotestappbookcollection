@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from books_collection.views import home_view, add_book_view, edit_book_view, delete_book_view, search_book_view,\
+from books_collection.views import home_view, add_book_view, edit_book_view, delete_book_view,\
                                     search_book_view, import_book_view, BookViewRESTAPI
 
 urlpatterns = [

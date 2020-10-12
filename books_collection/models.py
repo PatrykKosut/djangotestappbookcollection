@@ -12,4 +12,4 @@ class Book(models.Model):
     language = models.CharField(max_length=255)
 
     def get_absolute_url(self):
-        return f"books/{self.id}/"
+        return f"books/{self.id}"

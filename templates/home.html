@@ -31,8 +31,8 @@
             <td>{{ item.page_num }}  </td>
             <td>{{ item.link }}      </td>
             <td>{{ item.language }}  </td>
-            <td><a href="/books/{{ item.id }}/edit">Edit</a></td>
-            <td><a href="/books/{{ item.id }}/delete">Delete</a></td>
+            <td><a href="/{{ item.get_absolute_url }}/edit">Edit</a></td>
+            <td><a href="/{{ item.get_absolute_url }}/delete">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>
